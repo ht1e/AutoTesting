@@ -3,13 +3,17 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}    Chrome
-${URL}        https://google.com
+${URL}        https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+${USERNAME}   Admin
+${PASSWORD}   admin123
+${INPUT_USERNAME}    //input[@name="username"]
+${INPUT_PASSWORD}    //input[@name="password"]
+${BUTTON_SUBMIT}     //button[@type="submit"]
 
 *** Test Cases ***
-Open Google and Search
+Mở trình duyệt và đăng nhập thành công
     Open Browser    ${URL}    ${BROWSER}
-    Sleep    2s
-    Input Text    name=q    Robot Framework
-    Press Keys    name=q    ENTER
-    Sleep    3s
-    Close Browser
+    Sleep    5s
+    Input Text    ${INPUT_USERNAME}    ${USERNAME}
+    Input Text    ${INPUT_PASSWORD}    ${PASSWORD}
+    Click Element    ${BUTTON_SUBMIT}
