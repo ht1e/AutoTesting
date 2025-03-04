@@ -1,3 +1,21 @@
 ADMIN:
   username: admin
   password: admin123
+
+NOUSER:
+  username: 
+  password: admin123
+  
+NOPASS:
+  username: admin
+  password: 
+
+WRONGUSER:
+  username: admin11
+  password: admin123
+
+WRONGPASS:
+  username: admin
+  password: admin12333
+
+
