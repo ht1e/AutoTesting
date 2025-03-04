@@ -1,43 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.11.7 on win32)" generated="2025-03-03T17:19:36.863011" rpa="false" schemaversion="5">
-<suite id="s1" name="Testcase" source="D:\Bado\ExampleAutotesting\testcase.robot">
-<test id="s1-t1" name="Mở trình duyệt và đăng nhập thành công" line="14">
+<robot generator="Robot 7.2.2 (Python 3.11.7 on win32)" generated="2025-03-04T16:05:42.850518" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="D:\Bado\ExampleAutotesting\TestSuite\Login.robot">
+<test id="s1-t1" name="Đăng nhập vào hệ thống" line="5">
+<kw name="Mở trình duyệt và truy cập trang web" owner="Common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-03-03T17:19:37.162807" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
+<msg time="2025-03-04T16:05:43.166920" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-03-03T17:19:37.162807" elapsed="11.006198"/>
+<status status="PASS" start="2025-03-04T16:05:43.165839" elapsed="5.499055"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-03-03T17:19:53.170510" level="INFO">Slept 5 seconds.</msg>
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-03-03T17:19:48.170002" elapsed="5.000508"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-03-04T16:05:48.664894" elapsed="0.031872"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-03T17:19:53.172269" level="INFO">Typing text 'admin111' into text field '//input[@name="username"]'.</msg>
+<arg>&amp;{WEBINFO}</arg>
+<status status="PASS" start="2025-03-04T16:05:43.165839" elapsed="5.530927"/>
+</kw>
+<kw name="Đăng nhập vào website" owner="Login">
+<kw name="Nhập tài khoản" owner="Common">
+<kw name="Chờ đến khi trang có phần tử" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:48.696766" elapsed="0.673414"/>
+</kw>
 <arg>${INPUT_USERNAME}</arg>
-<arg>admin111</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-03T17:19:53.171561" elapsed="0.073676"/>
+<status status="PASS" start="2025-03-04T16:05:48.696766" elapsed="0.673414"/>
+</kw>
+<kw name="Chờ phần tử hiển thị" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.370180" elapsed="0.020912"/>
+</kw>
+<arg>${INPUT_USERNAME}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.370180" elapsed="0.020912"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-03-03T17:19:53.247382" level="INFO">Typing text 'admin123' into text field '//input[@name="password"]'.</msg>
-<arg>${INPUT_PASSWORD}</arg>
-<arg>${PASSWORD}</arg>
+<msg time="2025-03-04T16:05:49.391092" level="INFO">Typing text 'admin' into text field '//input[@name="username"]'.</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-03T17:19:53.247382" elapsed="0.073028"/>
+<status status="PASS" start="2025-03-04T16:05:49.391092" elapsed="0.070039"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-03-04T16:05:48.696766" elapsed="0.764365"/>
+</kw>
+<kw name="Nhập mật khẩu" owner="Common">
+<kw name="Chờ đến khi trang có phần tử" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.461131" elapsed="0.016020"/>
+</kw>
+<arg>${INPUT_PASSWORD}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.461131" elapsed="0.016020"/>
+</kw>
+<kw name="Chờ phần tử hiển thị" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.477151" elapsed="0.011532"/>
+</kw>
+<arg>${INPUT_PASSWORD}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.477151" elapsed="0.011532"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-03-04T16:05:49.488683" level="INFO">Typing password into text field '//input[@name="password"]'.</msg>
+<msg time="2025-03-04T16:05:49.515727" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.488683" elapsed="0.085362"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.461131" elapsed="0.112914"/>
+</kw>
+<kw name="Nhấn vào phần tử" owner="Common">
+<kw name="Chờ phần tử hiển thị" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.574883" elapsed="0.019528"/>
+</kw>
+<arg>${locator}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.574883" elapsed="0.020531"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-03-03T17:19:53.321418" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
-<arg>${BUTTON_SUBMIT}</arg>
+<msg time="2025-03-04T16:05:49.595414" level="INFO">Clicking element '//button[@type="submit"]'.</msg>
+<arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-03-03T17:19:53.321418" elapsed="0.053424"/>
+<status status="PASS" start="2025-03-04T16:05:49.595414" elapsed="0.051982"/>
 </kw>
-<status status="PASS" start="2025-03-03T17:19:37.158195" elapsed="16.218162"/>
+<arg>${BUTTON_SUBMIT}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.574045" elapsed="0.073351"/>
+</kw>
+<kw name="Chờ đến khi trang có phần tử" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:49.647396" elapsed="2.685579"/>
+</kw>
+<arg>${Navigation}</arg>
+<status status="PASS" start="2025-03-04T16:05:49.647396" elapsed="2.685579"/>
+</kw>
+<kw name="Chờ phần tử hiển thị" owner="Common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-03-04T16:05:52.332975" elapsed="0.015638"/>
+</kw>
+<arg>${Navigation}</arg>
+<status status="PASS" start="2025-03-04T16:05:52.332975" elapsed="0.015638"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-03-04T16:05:55.349071" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-03-04T16:05:52.348613" elapsed="3.000583"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-03-04T16:05:55.349196" elapsed="2.135102"/>
+</kw>
+<arg>&amp;{ADMIN}</arg>
+<status status="PASS" start="2025-03-04T16:05:48.696766" elapsed="8.787532"/>
+</kw>
+<status status="PASS" start="2025-03-04T16:05:43.164774" elapsed="14.319524"/>
 </test>
-<status status="PASS" start="2025-03-03T17:19:36.863011" elapsed="16.513346"/>
+<status status="PASS" start="2025-03-04T16:05:42.856942" elapsed="14.627356"/>
 </suite>
 <statistics>
 <total>
@@ -46,7 +145,7 @@
 <tag>
 </tag>
 <suite>
-<stat name="Testcase" id="s1" pass="1" fail="0" skip="0">Testcase</stat>
+<stat name="Login" id="s1" pass="1" fail="0" skip="0">Login</stat>
 </suite>
 </statistics>
 <errors>
